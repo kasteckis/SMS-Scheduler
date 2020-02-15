@@ -23,9 +23,16 @@ public class ContactsActivity extends AppCompatActivity {
 
         ListView contactsListView = findViewById(R.id.contactsListView);
 
+        ArrayList<Contact> contactList = readContacts();
+        ArrayList<Contact> contactListNoDups = removeDuplicates(contactList);
+
+        ContactsListAdapter adapter = new ContactsListAdapter(this, R.layout.contacts_list_view, contactListNoDups);
+        contactsListView.setAdapter(adapter);
+    }
+
+    private ArrayList<Contact> readContacts()
+    {
         ArrayList<Contact> contactList = new ArrayList<>();
-
-
         ContentResolver cr = getContentResolver();
         Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,
                 null, null, null, null);
@@ -57,9 +64,13 @@ public class ContactsActivity extends AppCompatActivity {
         if(cur!=null){
             cur.close();
         }
+        return contactList;
+    }
 
+    private ArrayList<Contact> removeDuplicates(ArrayList<Contact> list)
+    {
         ArrayList<Contact> contactListNoDups = new ArrayList<>();
-        for (Contact contact : contactList)
+        for (Contact contact : list)
         {
             boolean shouldIAddToNewList = true;
             for(Contact contactInNewList : contactListNoDups)
@@ -73,8 +84,6 @@ public class ContactsActivity extends AppCompatActivity {
             if(shouldIAddToNewList)
                 contactListNoDups.add(contact);
         }
-
-        ContactsListAdapter adapter = new ContactsListAdapter(this, R.layout.contacts_list_view, contactListNoDups);
-        contactsListView.setAdapter(adapter);
+        return contactListNoDups;
     }
 }
