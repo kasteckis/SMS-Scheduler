@@ -59,7 +59,7 @@ public class ContactsListAdapter extends ArrayAdapter<Contact> {
         TextView tvNumber = convertView.findViewById(R.id.numberTextView);
 
         tvName.setText(name);
-        tvName.setText(number);
+        tvNumber.setText(number);
 
         return convertView;
     }

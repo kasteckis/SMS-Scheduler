@@ -1,5 +1,7 @@
 package smsfrompc.com.smsfrompc;
 
+import androidx.annotation.Nullable;
+
 public class Contact {
     private String name;
     private String number;
@@ -23,5 +25,23 @@ public class Contact {
     public Contact(String name, String number) {
         this.name = name;
         this.number = number;
+    }
+
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "name='" + name + '\'' +
+                ", number='" + number + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 }
