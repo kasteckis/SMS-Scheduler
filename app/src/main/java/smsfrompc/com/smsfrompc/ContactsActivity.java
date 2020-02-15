@@ -46,7 +46,7 @@ public class ContactsActivity extends AppCompatActivity {
         contactsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getApplicationContext(), "paspausta", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "paspausta" + Integer.toString(i) + " " + Long.toString(l), Toast.LENGTH_SHORT).show();
             }
         });
     }
