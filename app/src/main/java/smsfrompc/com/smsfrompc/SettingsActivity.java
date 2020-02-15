@@ -32,12 +32,14 @@ public class SettingsActivity extends AppCompatActivity {
         permissionListener = new PermissionListener() {
             @Override
             public void onPermissionGranted() {
+                MainActivity.permissionsGranted = true;
                 informationAboutPermissions.setVisibility(View.GONE);
                 requestPermissionsButton.setVisibility(View.GONE);
             }
 
             @Override
             public void onPermissionDenied(List<String> deniedPermissions) {
+                MainActivity.permissionsGranted = false;
                 Toast.makeText(SettingsActivity.this, "You won't be able to use this program without granting permissions!", Toast.LENGTH_SHORT).show();
                 informationAboutPermissions.setText("This app won't work without granting permissions. Please request permission grant again.");
             }

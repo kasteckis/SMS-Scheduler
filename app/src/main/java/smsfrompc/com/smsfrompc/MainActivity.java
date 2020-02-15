@@ -16,6 +16,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static boolean permissionsGranted = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,11 +26,13 @@ public class MainActivity extends AppCompatActivity {
         final PermissionListener permissionListener = new PermissionListener() {
             @Override
             public void onPermissionGranted() {
+                permissionsGranted = true;
                 Toast.makeText(MainActivity.this, "Hey there!", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onPermissionDenied(List<String> deniedPermissions) {
+                permissionsGranted = false;
                 Toast.makeText(MainActivity.this, "You won't be able to use this program without granting permissions!", Toast.LENGTH_SHORT).show();
             }
         };
