@@ -30,20 +30,20 @@
         app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/scheduledTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="@string/datetime_default"
-        android:inputType="date"
+        android:inputType="date|time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/numberTextView" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/scheduleSmsBtn"
         android:layout_width="138dp"
         android:layout_height="47dp"
         android:background="@drawable/custom_button"
@@ -64,5 +64,5 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/scheduledTime" />
 </androidx.constraintlayout.widget.ConstraintLayout>
