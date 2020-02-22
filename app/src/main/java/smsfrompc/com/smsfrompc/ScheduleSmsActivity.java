@@ -45,8 +45,13 @@ public class ScheduleSmsActivity extends AppCompatActivity {
                 String tempNumber = (String) recipientNumber.getText();
                 EditText tempEditText = findViewById(R.id.messageText);
                 String tempText = tempEditText.getText().toString();
+                EditText tempEditTextTime = findViewById(R.id.scheduledTime);
+                int delayTimeMs = Integer.parseInt(tempEditTextTime.getText().toString());
+                delayTimeMs = delayTimeMs * 1000;
 
-                sendMessage(tempNumber, tempText, 10000);
+                //tempNumber = "+3706000";
+
+                sendMessage(tempNumber, tempText, delayTimeMs);
             }
         });
     }

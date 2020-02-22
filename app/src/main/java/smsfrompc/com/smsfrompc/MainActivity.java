@@ -1,6 +1,7 @@
 package smsfrompc.com.smsfrompc;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.Manifest;
 import android.content.Intent;
@@ -14,14 +15,21 @@ import com.gun0912.tedpermission.TedPermission;
 
 import java.util.List;
 
+import smsfrompc.com.smsfrompc.Entities.MyAppDatabase;
+import smsfrompc.com.smsfrompc.Entities.Setting;
+
 public class MainActivity extends AppCompatActivity {
 
     public static boolean permissionsGranted = false;
+    public static MyAppDatabase myAppDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //myAppDatabase = Room.databaseBuilder(getApplicationContext(), MyAppDatabase.class, "settingdb").allowMainThreadQueries().build();
+        //setDefaultSettings();
 
         final PermissionListener permissionListener = new PermissionListener() {
             @Override
@@ -86,5 +94,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(historyActivityIntent);
             }
         });
+    }
+
+    private void setDefaultSettings()
+    {
+        Setting setting = new Setting();
+        setting.setId(1);
+        setting.setSettingName("delayTime");
+        setting.setSettingValue("seconds");
+
+        myAppDatabase.myDao().addSetting(setting);
     }
 }
