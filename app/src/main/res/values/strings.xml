@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">SMS From PC</string>
     <string name="request_permissions">Request permissions</string>
+    <string name="send_sms_button">Schedule SMS</string>
+    <string name="name_surname_default">Name Surname</string>
+    <string name="number_default">Number</string>
+    <string name="message_to_schedule_hint">Your message</string>
+    <string name="datetime_default">2023-01-01 10:00:00</string>
 </resources>

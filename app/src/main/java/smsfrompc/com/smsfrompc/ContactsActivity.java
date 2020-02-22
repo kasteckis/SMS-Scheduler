@@ -21,6 +21,8 @@ import java.util.Set;
 
 public class ContactsActivity extends AppCompatActivity {
 
+    ArrayList<Contact> contactListNoDups;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +40,7 @@ public class ContactsActivity extends AppCompatActivity {
         ListView contactsListView = findViewById(R.id.contactsListView);
 
         ArrayList<Contact> contactList = readContacts();
-        ArrayList<Contact> contactListNoDups = removeDuplicates(contactList);
+        contactListNoDups = removeDuplicates(contactList);
 
         ContactsListAdapter adapter = new ContactsListAdapter(this, R.layout.contacts_list_view, contactListNoDups);
         contactsListView.setAdapter(adapter);
@@ -46,7 +48,13 @@ public class ContactsActivity extends AppCompatActivity {
         contactsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getApplicationContext(), "paspausta" + Integer.toString(i) + " " + Long.toString(l), Toast.LENGTH_SHORT).show();
+                Intent scheduleSmsIntent = new Intent(getApplicationContext(), ScheduleSmsActivity.class);
+
+                Contact selectedContact = contactListNoDups.get(i);
+                scheduleSmsIntent.putExtra("EXTRA_NAME", selectedContact.getName());
+                scheduleSmsIntent.putExtra("EXTRA_NUMBER", selectedContact.getNumber());
+
+                startActivity(scheduleSmsIntent);
             }
         });
     }
