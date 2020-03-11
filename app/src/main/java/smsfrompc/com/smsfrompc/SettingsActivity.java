@@ -79,9 +79,9 @@ public class SettingsActivity extends AppCompatActivity {
         String[] arraySpinnerLocal = new String[2];
         if(MainActivity.ScheduleFormatSetting.getSettingValue().equals("seconds")) {
             arraySpinnerLocal[0] = "seconds";
-            arraySpinnerLocal[1] = "hours";
+            arraySpinnerLocal[1] = "minutes";
         } else {
-            arraySpinnerLocal[0] = "hours";
+            arraySpinnerLocal[0] = "minutes";
             arraySpinnerLocal[1] = "seconds";
         }
 
@@ -114,6 +114,7 @@ public class SettingsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 MainActivity.ScheduleFormatSetting.setSettingValue(selectedScheduleFormat[0]);
                 MainActivity.myAppDatabase.settingDao().updateSetting(MainActivity.ScheduleFormatSetting);
+                Toast.makeText(SettingsActivity.this, "You will be using " + selectedScheduleFormat[0] + " from now on when delaying messages!", Toast.LENGTH_LONG).show();
             }
         });
     }

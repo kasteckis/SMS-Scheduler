@@ -5,6 +5,7 @@
     <string name="name_surname_default">Name Surname</string>
     <string name="number_default">Number</string>
     <string name="message_to_schedule_hint">Your message</string>
-    <string name="datetime_default">60 (seconds)</string>
+    <string name="datetime_default_seconds">60 (seconds)</string>
+    <string name="datetime_default_minutes">2 (minutes)</string>
     <string name="save_button">Save</string>
 </resources>
