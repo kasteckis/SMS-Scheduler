@@ -1,4 +1,4 @@
-package smsfrompc.com.smsfrompc.Activities;
+package smsfrompc.com.smsfrompc.Entities;
 
 import androidx.annotation.Nullable;
 
