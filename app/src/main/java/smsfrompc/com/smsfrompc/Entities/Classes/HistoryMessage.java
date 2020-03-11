@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "history_messages")
 public class HistoryMessage {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int id;
 
     @ColumnInfo(name = "recipient_name")

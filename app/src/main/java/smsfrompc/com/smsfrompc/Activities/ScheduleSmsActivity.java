@@ -14,6 +14,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import smsfrompc.com.smsfrompc.Activities.MainActivity;
 import smsfrompc.com.smsfrompc.Entities.Classes.HistoryMessage;
 import smsfrompc.com.smsfrompc.R;
 
@@ -98,7 +99,7 @@ public class ScheduleSmsActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         smsManager.sendTextMessage(plainRecipientNumber, null, plainRecipientText, null, null);
-                        //MainActivity.myAppDatabase.historyMessageDao().addHistoryMessage(historyMessage);
+                        MainActivity.myAppDatabase.historyMessageDao().addHistoryMessage(historyMessage);
                     }
                 },
                 delayTimeMs

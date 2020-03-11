@@ -27,10 +27,6 @@ public class HistoryActivity extends AppCompatActivity {
         ListView contactsListView = findViewById(R.id.historyListView);
 
         List<HistoryMessage> historyMessageArrayList = MainActivity.myAppDatabase.historyMessageDao().getAll();
-        HistoryMessage a = new HistoryMessage("tadas", "112", "2min", "seconds", "2012-02-02");
-        historyMessageArrayList.add(a);
-        historyMessageArrayList.add(a);
-        historyMessageArrayList.add(a);
 
         HistoryListAdapter adapter = new HistoryListAdapter(this, R.layout.history_list_view, historyMessageArrayList);
         contactsListView.setAdapter(adapter);
@@ -39,6 +35,8 @@ public class HistoryActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent scheduleSmsIntent = new Intent(getApplicationContext(), ScheduleSmsActivity.class);
+
+                // TODO: Fix this.
 
 //                Contact selectedContact = contactListNoDups.get(i);
 //                scheduleSmsIntent.putExtra("EXTRA_NAME", selectedContact.getName());
