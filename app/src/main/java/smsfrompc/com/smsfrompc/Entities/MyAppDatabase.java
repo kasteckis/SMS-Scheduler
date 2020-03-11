@@ -5,5 +5,5 @@ import androidx.room.RoomDatabase;
 
 @Database(entities = {Setting.class}, version = 1)
 public abstract class MyAppDatabase extends RoomDatabase {
-    public abstract MyDao myDao();
+    public abstract SettingDao settingDao();
 }

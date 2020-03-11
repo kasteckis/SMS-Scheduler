@@ -22,14 +22,15 @@ public class MainActivity extends AppCompatActivity {
 
     public static boolean permissionsGranted = false;
     public static MyAppDatabase myAppDatabase;
+    public static String ScheduleFormat = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //myAppDatabase = Room.databaseBuilder(getApplicationContext(), MyAppDatabase.class, "settingdb").allowMainThreadQueries().build();
-        //setDefaultSettings();
+        myAppDatabase = Room.databaseBuilder(getApplicationContext(), MyAppDatabase.class, "settingdb").allowMainThreadQueries().build();
+        setDefaultSettings();
 
         final PermissionListener permissionListener = new PermissionListener() {
             @Override
@@ -98,11 +99,21 @@ public class MainActivity extends AppCompatActivity {
 
     private void setDefaultSettings()
     {
-        Setting setting = new Setting();
-        setting.setId(1);
-        setting.setSettingName("delayTime");
-        setting.setSettingValue("seconds");
+        List<Setting> allSettings = myAppDatabase.settingDao().getAll();
+        if(allSettings.size() == 0) {
+            Setting setting = new Setting();
+            setting.setId(1);
+            setting.setSettingName("delayTime");
+            setting.setSettingValue("seconds");
 
-        myAppDatabase.myDao().addSetting(setting);
+            myAppDatabase.settingDao().addSetting(setting);
+        }
+        allSettings = myAppDatabase.settingDao().getAll();
+        for(Setting setting : allSettings) {
+            if(setting.getSettingName().equals("delayTime")) {
+                ScheduleFormat = setting.getSettingValue();
+            }
+        }
+        int a = 0;
     }
 }
