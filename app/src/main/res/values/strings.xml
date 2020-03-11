@@ -13,4 +13,6 @@
     <string name="this_app_wont_work_without_granting_permissions">"This app won't work without granting permissions. Please request permission grant again."</string>
     <string name="hey_there">Hey there!</string>
     <string name="what_you_will_be_using_while_delaying_messages_question">What you will be using while delaying messages?</string>
+    <string name="about">About</string>
+    <string name="about_text">Here will be some ABOUT (or INFO) text</string>
 </resources>

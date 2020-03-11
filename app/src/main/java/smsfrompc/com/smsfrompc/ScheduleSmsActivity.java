@@ -66,7 +66,7 @@ public class ScheduleSmsActivity extends AppCompatActivity {
                 int delayTimeMs = Integer.parseInt(editTextTime.getText().toString());
                 delayTimeMs = delayTimeMs * delayTimeMultiplier;
 
-                tempNumber = "+3706000";
+                //tempNumber = "+3706000";
 
                 sendMessage(tempNumber, tempText, delayTimeMs);
             }
