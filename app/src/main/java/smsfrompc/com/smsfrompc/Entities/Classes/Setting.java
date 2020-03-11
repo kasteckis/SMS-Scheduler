@@ -1,4 +1,4 @@
-package smsfrompc.com.smsfrompc.Entities;
+package smsfrompc.com.smsfrompc.Entities.Classes;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

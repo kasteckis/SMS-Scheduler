@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 
 import java.util.List;
 
-import smsfrompc.com.smsfrompc.Entities.Contact;
+import smsfrompc.com.smsfrompc.Entities.Classes.Contact;
 import smsfrompc.com.smsfrompc.R;
 
 public class ContactsListAdapter extends ArrayAdapter<Contact> {

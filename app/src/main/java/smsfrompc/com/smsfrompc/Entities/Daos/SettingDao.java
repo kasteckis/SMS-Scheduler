@@ -1,4 +1,4 @@
-package smsfrompc.com.smsfrompc.Entities;
+package smsfrompc.com.smsfrompc.Entities.Daos;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -7,6 +7,8 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import java.util.List;
+
+import smsfrompc.com.smsfrompc.Entities.Classes.Setting;
 
 @Dao
 public interface SettingDao {

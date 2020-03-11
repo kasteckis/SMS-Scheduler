@@ -14,7 +14,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import smsfrompc.com.smsfrompc.Adapters.ContactsListAdapter;
-import smsfrompc.com.smsfrompc.Entities.Contact;
+import smsfrompc.com.smsfrompc.Entities.Classes.Contact;
 import smsfrompc.com.smsfrompc.R;
 
 public class ContactsActivity extends AppCompatActivity {

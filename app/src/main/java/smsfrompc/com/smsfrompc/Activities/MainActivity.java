@@ -16,7 +16,7 @@ import com.gun0912.tedpermission.TedPermission;
 import java.util.List;
 
 import smsfrompc.com.smsfrompc.Entities.MyAppDatabase;
-import smsfrompc.com.smsfrompc.Entities.Setting;
+import smsfrompc.com.smsfrompc.Entities.Classes.Setting;
 import smsfrompc.com.smsfrompc.R;
 
 public class MainActivity extends AppCompatActivity {
