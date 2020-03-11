@@ -46,8 +46,8 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onPermissionDenied(List<String> deniedPermissions) {
                 MainActivity.permissionsGranted = false;
-                Toast.makeText(SettingsActivity.this, "You won't be able to use this program without granting permissions!", Toast.LENGTH_SHORT).show();
-                informationAboutPermissions.setText("This app won't work without granting permissions. Please request permission grant again.");
+                Toast.makeText(SettingsActivity.this, getResources().getString(R.string.wont_be_using_program_without_granting_permissions), Toast.LENGTH_SHORT).show();
+                informationAboutPermissions.setText(getResources().getString(R.string.this_app_wont_work_without_granting_permissions));
             }
         };
 

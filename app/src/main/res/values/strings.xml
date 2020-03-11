@@ -8,4 +8,9 @@
     <string name="datetime_default_seconds">60 (seconds)</string>
     <string name="datetime_default_minutes">2 (minutes)</string>
     <string name="save_button">Save</string>
+    <string name="message_successfully_scheduled">Your message is successfully scheduled!</string>
+    <string name="wont_be_using_program_without_granting_permissions">You won\'t be able to use this program without granting permissions!</string>
+    <string name="this_app_wont_work_without_granting_permissions">"This app won't work without granting permissions. Please request permission grant again."</string>
+    <string name="hey_there">Hey there!</string>
+    <string name="what_you_will_be_using_while_delaying_messages_question">What you will be using while delaying messages?</string>
 </resources>

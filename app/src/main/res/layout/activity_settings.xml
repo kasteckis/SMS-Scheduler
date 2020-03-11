@@ -57,7 +57,7 @@
         android:id="@+id/sheculeFormatSpinnerLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="What you will be using while delaying messages?"
+        android:text="@string/what_you_will_be_using_while_delaying_messages_question"
         app:layout_constraintBottom_toTopOf="@+id/scheduleFormatSpinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

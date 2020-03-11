@@ -36,13 +36,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPermissionGranted() {
                 permissionsGranted = true;
-                Toast.makeText(MainActivity.this, "Hey there!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, getResources().getString(R.string.hey_there), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onPermissionDenied(List<String> deniedPermissions) {
                 permissionsGranted = false;
-                Toast.makeText(MainActivity.this, "You won't be able to use this program without granting permissions!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, getResources().getString(R.string.wont_be_using_program_without_granting_permissions), Toast.LENGTH_SHORT).show();
             }
         };
 

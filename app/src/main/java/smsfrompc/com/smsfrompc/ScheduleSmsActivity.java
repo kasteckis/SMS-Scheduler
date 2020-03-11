@@ -59,14 +59,14 @@ public class ScheduleSmsActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Toast.makeText(ScheduleSmsActivity.this, "Your message is successfully scheduled!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ScheduleSmsActivity.this, getResources().getString(R.string.message_successfully_scheduled), Toast.LENGTH_SHORT).show();
                 String tempNumber = (String) recipientNumber.getText();
                 EditText tempEditText = findViewById(R.id.messageText);
                 String tempText = tempEditText.getText().toString();
                 int delayTimeMs = Integer.parseInt(editTextTime.getText().toString());
                 delayTimeMs = delayTimeMs * delayTimeMultiplier;
 
-                tempNumber = "+37060004869";
+                tempNumber = "+3706000";
 
                 sendMessage(tempNumber, tempText, delayTimeMs);
             }

@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
-        android:hint="@string/datetime_default"
+        android:hint="@string/datetime_default_seconds"
         android:inputType="date|time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
