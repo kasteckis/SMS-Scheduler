@@ -1,4 +1,4 @@
-package smsfrompc.com.smsfrompc;
+package smsfrompc.com.smsfrompc.Activities;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.List;
+
+import smsfrompc.com.smsfrompc.R;
 
 public class ContactsListAdapter extends ArrayAdapter<Contact> {
 

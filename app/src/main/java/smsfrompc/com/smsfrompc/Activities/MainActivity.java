@@ -1,4 +1,4 @@
-package smsfrompc.com.smsfrompc;
+package smsfrompc.com.smsfrompc.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
@@ -17,6 +17,7 @@ import java.util.List;
 
 import smsfrompc.com.smsfrompc.Entities.MyAppDatabase;
 import smsfrompc.com.smsfrompc.Entities.Setting;
+import smsfrompc.com.smsfrompc.R;
 
 public class MainActivity extends AppCompatActivity {
 

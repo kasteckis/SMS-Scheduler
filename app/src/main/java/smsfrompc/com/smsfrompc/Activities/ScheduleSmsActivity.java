@@ -1,16 +1,16 @@
-package smsfrompc.com.smsfrompc;
+package smsfrompc.com.smsfrompc.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.SmsManager;
-import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import smsfrompc.com.smsfrompc.R;
 
 public class ScheduleSmsActivity extends AppCompatActivity {
 

@@ -14,12 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ScheduleSmsActivity"></activity>
-        <activity android:name=".HistoryActivity" />
-        <activity android:name=".AboutActivity" />
-        <activity android:name=".ContactsActivity" />
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.ScheduleSmsActivity"></activity>
+        <activity android:name=".Activities.HistoryActivity" />
+        <activity android:name=".Activities.AboutActivity" />
+        <activity android:name=".Activities.ContactsActivity" />
+        <activity android:name=".Activities.SettingsActivity" />
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

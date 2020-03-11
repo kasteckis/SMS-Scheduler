@@ -1,9 +1,8 @@
-package smsfrompc.com.smsfrompc;
+package smsfrompc.com.smsfrompc.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,6 +16,8 @@ import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 
 import java.util.List;
+
+import smsfrompc.com.smsfrompc.R;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -63,7 +64,6 @@ public class SettingsActivity extends AppCompatActivity {
 
 
         handleScheduleFormatSpinner();
-        int a = 0;
     }
 
     void requestPermissions()

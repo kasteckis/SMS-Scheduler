@@ -1,4 +1,4 @@
-package smsfrompc.com.smsfrompc;
+package smsfrompc.com.smsfrompc.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,18 +6,14 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.os.Debug;
 import android.provider.ContactsContract;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+
+import smsfrompc.com.smsfrompc.R;
 
 public class ContactsActivity extends AppCompatActivity {
 
