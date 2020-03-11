@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static boolean permissionsGranted = false;
     public static MyAppDatabase myAppDatabase;
-    public static String ScheduleFormat = null;
+    public static Setting ScheduleFormatSetting = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,9 +111,8 @@ public class MainActivity extends AppCompatActivity {
         allSettings = myAppDatabase.settingDao().getAll();
         for(Setting setting : allSettings) {
             if(setting.getSettingName().equals("delayTime")) {
-                ScheduleFormat = setting.getSettingValue();
+                ScheduleFormatSetting = setting;
             }
         }
-        int a = 0;
     }
 }

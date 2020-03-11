@@ -6,7 +6,10 @@ import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +24,8 @@ public class SettingsActivity extends AppCompatActivity {
     Button requestPermissionsButton;
     PermissionListener permissionListener;
 
+    Button saveButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +33,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         informationAboutPermissions = findViewById(R.id.informationAboutPermissions);
         requestPermissionsButton = findViewById(R.id.reqPermissionsBtn);
+        saveButton = findViewById(R.id.saveSettingsBtn);
 
         permissionListener = new PermissionListener() {
             @Override
@@ -54,6 +60,10 @@ public class SettingsActivity extends AppCompatActivity {
                 requestPermissions();
             }
         });
+
+
+        handleScheduleFormatSpinner();
+        int a = 0;
     }
 
     void requestPermissions()
@@ -63,5 +73,48 @@ public class SettingsActivity extends AppCompatActivity {
                 .setPermissions(Manifest.permission.READ_CONTACTS, Manifest.permission.WRITE_CONTACTS,
                         Manifest.permission.SEND_SMS, Manifest.permission.INTERNET)
                 .check();
+    }
+
+    void handleScheduleFormatSpinner() {
+        String[] arraySpinnerLocal = new String[2];
+        if(MainActivity.ScheduleFormatSetting.getSettingValue().equals("seconds")) {
+            arraySpinnerLocal[0] = "seconds";
+            arraySpinnerLocal[1] = "hours";
+        } else {
+            arraySpinnerLocal[0] = "hours";
+            arraySpinnerLocal[1] = "seconds";
+        }
+
+        final String[] arraySpinner = new String[] {
+                arraySpinnerLocal[0], arraySpinnerLocal[1]
+        };
+
+        final String[] selectedScheduleFormat = {"seconds"};
+
+        Spinner scheduleFormatSpinner = findViewById(R.id.scheduleFormatSpinner);
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arraySpinner);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        scheduleFormatSpinner.setAdapter(spinnerAdapter);
+
+        scheduleFormatSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
+                selectedScheduleFormat[0] = arraySpinner[position];
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                throw new RuntimeException("User selected nothing");
+            }
+        });
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.ScheduleFormatSetting.setSettingValue(selectedScheduleFormat[0]);
+                MainActivity.myAppDatabase.settingDao().updateSetting(MainActivity.ScheduleFormatSetting);
+            }
+        });
     }
 }

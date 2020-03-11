@@ -4,20 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsActivity"
-    android:background="@drawable/gradient">
+    android:background="@drawable/gradient"
+    tools:context=".SettingsActivity">
 
     <Button
         android:id="@+id/reqPermissionsBtn"
         android:layout_width="192dp"
         android:layout_height="43dp"
-        android:layout_marginBottom="312dp"
         android:background="@drawable/custom_button"
         android:text="@string/request_permissions"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.451" />
 
     <TextView
         android:id="@+id/informationAboutPermissions"
@@ -28,4 +29,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.49" />
+
+    <Button
+        android:id="@+id/saveSettingsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="164dp"
+        android:background="@drawable/custom_button"
+        android:text="@string/save_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scheduleFormatSpinner" />
+
+    <Spinner
+        android:id="@+id/scheduleFormatSpinner"
+        android:layout_width="168dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="52dp"
+        android:spinnerMode="dialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reqPermissionsBtn" />
+
+    <TextView
+        android:id="@+id/sheculeFormatSpinnerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What you will be using while delaying messages?"
+        app:layout_constraintBottom_toTopOf="@+id/scheduleFormatSpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

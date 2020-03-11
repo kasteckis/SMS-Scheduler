@@ -6,4 +6,5 @@
     <string name="number_default">Number</string>
     <string name="message_to_schedule_hint">Your message</string>
     <string name="datetime_default">60 (seconds)</string>
+    <string name="save_button">Save</string>
 </resources>
