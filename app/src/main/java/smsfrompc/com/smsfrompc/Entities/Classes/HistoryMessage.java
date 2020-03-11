@@ -25,6 +25,14 @@ public class HistoryMessage {
     @ColumnInfo(name = "date")
     private String date;
 
+    public HistoryMessage(String recipientName, String recipientNumber, String delayTime, String scheduleFormat, String date) {
+        this.recipientName = recipientName;
+        this.recipientNumber = recipientNumber;
+        this.delayTime = delayTime;
+        this.scheduleFormat = scheduleFormat;
+        this.date = date;
+    }
+
     public int getId() {
         return id;
     }

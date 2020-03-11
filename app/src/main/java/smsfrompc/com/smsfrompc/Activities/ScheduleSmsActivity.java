@@ -10,6 +10,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import smsfrompc.com.smsfrompc.Entities.Classes.HistoryMessage;
 import smsfrompc.com.smsfrompc.R;
 
 public class ScheduleSmsActivity extends AppCompatActivity {
@@ -67,13 +72,23 @@ public class ScheduleSmsActivity extends AppCompatActivity {
                 delayTimeMs = delayTimeMs * delayTimeMultiplier;
 
                 //tempNumber = "+3706000";
+                DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                Date date = new Date();
 
-                sendMessage(tempNumber, tempText, delayTimeMs);
+                HistoryMessage historyMessage = new HistoryMessage(
+                        recipientName.getText().toString(),
+                        recipientNumber.getText().toString(),
+                        Integer.toString(delayTimeMs),
+                        MainActivity.ScheduleFormatSetting.getSettingValue(),
+                        dateFormat.format(date)
+                );
+
+                sendMessage(tempNumber, tempText, delayTimeMs, historyMessage);
             }
         });
     }
 
-    private void sendMessage(String number, String text, int delayTimeMs)
+    private void sendMessage(String number, String text, int delayTimeMs, final HistoryMessage historyMessage)
     {
         plainRecipientNumber = number;
         plainRecipientText = text;
@@ -83,6 +98,7 @@ public class ScheduleSmsActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         smsManager.sendTextMessage(plainRecipientNumber, null, plainRecipientText, null, null);
+                        //MainActivity.myAppDatabase.historyMessageDao().addHistoryMessage(historyMessage);
                     }
                 },
                 delayTimeMs

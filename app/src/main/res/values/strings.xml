@@ -15,4 +15,8 @@
     <string name="what_you_will_be_using_while_delaying_messages_question">What you will be using while delaying messages?</string>
     <string name="about">About</string>
     <string name="about_text">Here will be some ABOUT (or INFO) text</string>
+    <string name="name">Name</string>
+    <string name="number">Number</string>
+    <string name="delay_time">Delay time</string>
+    <string name="date">Date</string>
 </resources>

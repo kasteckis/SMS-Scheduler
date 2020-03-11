@@ -52,8 +52,6 @@ public class ContactsListAdapter extends ArrayAdapter<Contact> {
         String name = getItem(position).getName();
         String number = getItem(position).getNumber();
 
-        Contact contact = new Contact(name, number);
-
         LayoutInflater inflater = LayoutInflater.from(mContext);
 
         convertView = inflater.inflate(mResource, parent, false);
