@@ -5,18 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import smsfrompc.com.smsfrompc.Adapters.ContactsListAdapter;
 import smsfrompc.com.smsfrompc.Adapters.HistoryListAdapter;
-import smsfrompc.com.smsfrompc.Entities.Classes.Contact;
 import smsfrompc.com.smsfrompc.Entities.Classes.HistoryMessage;
-import smsfrompc.com.smsfrompc.PermissionManager;
+import smsfrompc.com.smsfrompc.Managers.PermissionManager;
 import smsfrompc.com.smsfrompc.R;
 
 public class HistoryActivity extends AppCompatActivity {

@@ -8,7 +8,6 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -16,7 +15,7 @@ import java.util.ArrayList;
 
 import smsfrompc.com.smsfrompc.Adapters.ContactsListAdapter;
 import smsfrompc.com.smsfrompc.Entities.Classes.Contact;
-import smsfrompc.com.smsfrompc.PermissionManager;
+import smsfrompc.com.smsfrompc.Managers.PermissionManager;
 import smsfrompc.com.smsfrompc.R;
 
 public class ContactsActivity extends AppCompatActivity {

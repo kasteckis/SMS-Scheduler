@@ -17,7 +17,7 @@ import java.util.List;
 
 import smsfrompc.com.smsfrompc.Entities.MyAppDatabase;
 import smsfrompc.com.smsfrompc.Entities.Classes.Setting;
-import smsfrompc.com.smsfrompc.PermissionManager;
+import smsfrompc.com.smsfrompc.Managers.PermissionManager;
 import smsfrompc.com.smsfrompc.R;
 
 public class MainActivity extends AppCompatActivity {

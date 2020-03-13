@@ -1,4 +1,4 @@
-package smsfrompc.com.smsfrompc;
+package smsfrompc.com.smsfrompc.Managers;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +10,8 @@ public class PermissionManager {
 
     public static boolean didUserGrantPermissions()
     {
-        if(permissionsGranted)
-            return true;
-        return false;
+        // TODO: Check both permissions.
+
+        return permissionsGranted;
     }
 }
