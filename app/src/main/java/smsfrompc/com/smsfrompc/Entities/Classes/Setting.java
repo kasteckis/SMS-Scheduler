@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey;
 import java.util.List;
 
 import smsfrompc.com.smsfrompc.Activities.MainActivity;
+import smsfrompc.com.smsfrompc.Entities.Types.ScheduleFormatType;
 
 @Entity(tableName = "settings")
 public class Setting {
@@ -28,7 +29,7 @@ public class Setting {
             Setting setting = new Setting();
             setting.setId(1);
             setting.setSettingName("delayTime");
-            setting.setSettingValue("seconds");
+            setting.setSettingValue(ScheduleFormatType.SECONDS);
 
             MainActivity.myAppDatabase.settingDao().addSetting(setting);
         }

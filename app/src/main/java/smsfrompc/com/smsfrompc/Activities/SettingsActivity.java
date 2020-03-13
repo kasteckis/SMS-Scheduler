@@ -18,6 +18,7 @@ import com.gun0912.tedpermission.TedPermission;
 import java.util.List;
 
 import smsfrompc.com.smsfrompc.Entities.Classes.Setting;
+import smsfrompc.com.smsfrompc.Entities.Types.ScheduleFormatType;
 import smsfrompc.com.smsfrompc.Managers.PermissionManager;
 import smsfrompc.com.smsfrompc.R;
 
@@ -79,19 +80,19 @@ public class SettingsActivity extends AppCompatActivity {
 
     void handleScheduleFormatSpinner() {
         String[] arraySpinnerLocal = new String[2];
-        if(Setting.ScheduleFormatSetting.getSettingValue().equals("seconds")) {
-            arraySpinnerLocal[0] = "seconds";
-            arraySpinnerLocal[1] = "minutes";
+        if(Setting.ScheduleFormatSetting.getSettingValue().equals(ScheduleFormatType.SECONDS)) {
+            arraySpinnerLocal[0] = ScheduleFormatType.SECONDS;
+            arraySpinnerLocal[1] = ScheduleFormatType.MINUTES;
         } else {
-            arraySpinnerLocal[0] = "minutes";
-            arraySpinnerLocal[1] = "seconds";
+            arraySpinnerLocal[0] = ScheduleFormatType.MINUTES;
+            arraySpinnerLocal[1] = ScheduleFormatType.SECONDS;
         }
 
         final String[] arraySpinner = new String[] {
                 arraySpinnerLocal[0], arraySpinnerLocal[1]
         };
 
-        final String[] selectedScheduleFormat = {"seconds"};
+        final String[] selectedScheduleFormat = {ScheduleFormatType.SECONDS};
 
         Spinner scheduleFormatSpinner = findViewById(R.id.scheduleFormatSpinner);
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arraySpinner);

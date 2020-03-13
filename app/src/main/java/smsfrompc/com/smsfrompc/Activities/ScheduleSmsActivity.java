@@ -14,9 +14,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import smsfrompc.com.smsfrompc.Activities.MainActivity;
 import smsfrompc.com.smsfrompc.Entities.Classes.HistoryMessage;
 import smsfrompc.com.smsfrompc.Entities.Classes.Setting;
+import smsfrompc.com.smsfrompc.Entities.Types.ScheduleFormatType;
 import smsfrompc.com.smsfrompc.R;
 
 public class ScheduleSmsActivity extends AppCompatActivity {
@@ -47,12 +47,12 @@ public class ScheduleSmsActivity extends AppCompatActivity {
         editText = findViewById(R.id.messageText);
 
         switch(Setting.ScheduleFormatSetting.getSettingValue()) {
-            case "seconds":
+            case ScheduleFormatType.SECONDS:
                 editTextTime.setHint(getResources().getString(R.string.datetime_default_seconds));
                 setScheduledTimeFromHistory();
                 delayTimeMultiplier = 1000;
                 break;
-            case "minutes":
+            case ScheduleFormatType.MINUTES:
                 editTextTime.setHint(getResources().getString(R.string.datetime_default_minutes));
                 setScheduledTimeFromHistory();
                 delayTimeMultiplier = 1000 * 60;
@@ -123,10 +123,10 @@ public class ScheduleSmsActivity extends AppCompatActivity {
         int delayTimeInt = Integer.parseInt(delayTime) / 1000;
 
         switch(Setting.ScheduleFormatSetting.getSettingValue()) {
-            case "seconds":
+            case ScheduleFormatType.SECONDS:
                 editTextTime.setText(Integer.toString(delayTimeInt));
                 break;
-            case "minutes":
+            case ScheduleFormatType.MINUTES:
                 delayTimeInt = delayTimeInt / 60;
                 if(delayTimeInt > 0)
                 {
