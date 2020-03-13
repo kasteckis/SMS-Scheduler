@@ -17,11 +17,10 @@ import java.util.List;
 
 import smsfrompc.com.smsfrompc.Entities.MyAppDatabase;
 import smsfrompc.com.smsfrompc.Entities.Classes.Setting;
+import smsfrompc.com.smsfrompc.PermissionManager;
 import smsfrompc.com.smsfrompc.R;
 
 public class MainActivity extends AppCompatActivity {
-
-    public static boolean permissionsGranted = false;
     public static MyAppDatabase myAppDatabase;
     public static Setting ScheduleFormatSetting = null;
 
@@ -36,13 +35,13 @@ public class MainActivity extends AppCompatActivity {
         final PermissionListener permissionListener = new PermissionListener() {
             @Override
             public void onPermissionGranted() {
-                permissionsGranted = true;
+                PermissionManager.permissionsGranted = true;
                 Toast.makeText(MainActivity.this, getResources().getString(R.string.hey_there), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onPermissionDenied(List<String> deniedPermissions) {
-                permissionsGranted = false;
+                PermissionManager.permissionsGranted = false;
                 Toast.makeText(MainActivity.this, getResources().getString(R.string.wont_be_using_program_without_granting_permissions), Toast.LENGTH_SHORT).show();
             }
         };

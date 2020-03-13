@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -15,30 +16,30 @@ import java.util.ArrayList;
 
 import smsfrompc.com.smsfrompc.Adapters.ContactsListAdapter;
 import smsfrompc.com.smsfrompc.Entities.Classes.Contact;
+import smsfrompc.com.smsfrompc.PermissionManager;
 import smsfrompc.com.smsfrompc.R;
 
 public class ContactsActivity extends AppCompatActivity {
 
-    ArrayList<Contact> contactListNoDups;
+    static ArrayList<Contact> contactListNoDups;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
 
-        if(!MainActivity.permissionsGranted)
+        if(!PermissionManager.permissionsGranted)
         {
-            Intent settingsIntent = new Intent(getApplicationContext(), SettingsActivity.class);
-
-            startActivity(settingsIntent);
+            setContentView(R.layout.not_granted_permissions_layout);
             return;
         }
 
-
         ListView contactsListView = findViewById(R.id.contactsListView);
 
-        ArrayList<Contact> contactList = readContacts();
-        contactListNoDups = removeDuplicates(contactList);
+        if(contactListNoDups == null) {
+            ArrayList<Contact> contactList = readContacts();
+            contactListNoDups = removeDuplicates(contactList);
+        }
 
         ContactsListAdapter adapter = new ContactsListAdapter(this, R.layout.contacts_list_view, contactListNoDups);
         contactsListView.setAdapter(adapter);

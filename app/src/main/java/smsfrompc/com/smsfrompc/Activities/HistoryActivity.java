@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -15,6 +16,7 @@ import smsfrompc.com.smsfrompc.Adapters.ContactsListAdapter;
 import smsfrompc.com.smsfrompc.Adapters.HistoryListAdapter;
 import smsfrompc.com.smsfrompc.Entities.Classes.Contact;
 import smsfrompc.com.smsfrompc.Entities.Classes.HistoryMessage;
+import smsfrompc.com.smsfrompc.PermissionManager;
 import smsfrompc.com.smsfrompc.R;
 
 public class HistoryActivity extends AppCompatActivity {
@@ -22,6 +24,13 @@ public class HistoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(!PermissionManager.permissionsGranted)
+        {
+            setContentView(R.layout.not_granted_permissions_layout);
+            return;
+        }
+
         setContentView(R.layout.activity_history);
 
         ListView contactsListView = findViewById(R.id.historyListView);

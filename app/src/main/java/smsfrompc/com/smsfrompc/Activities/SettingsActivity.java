@@ -17,6 +17,7 @@ import com.gun0912.tedpermission.TedPermission;
 
 import java.util.List;
 
+import smsfrompc.com.smsfrompc.PermissionManager;
 import smsfrompc.com.smsfrompc.R;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -39,14 +40,14 @@ public class SettingsActivity extends AppCompatActivity {
         permissionListener = new PermissionListener() {
             @Override
             public void onPermissionGranted() {
-                MainActivity.permissionsGranted = true;
+                PermissionManager.permissionsGranted = true;
                 informationAboutPermissions.setVisibility(View.GONE);
                 requestPermissionsButton.setVisibility(View.GONE);
             }
 
             @Override
             public void onPermissionDenied(List<String> deniedPermissions) {
-                MainActivity.permissionsGranted = false;
+                PermissionManager.permissionsGranted = false;
                 Toast.makeText(SettingsActivity.this, getResources().getString(R.string.wont_be_using_program_without_granting_permissions), Toast.LENGTH_SHORT).show();
                 informationAboutPermissions.setText(getResources().getString(R.string.this_app_wont_work_without_granting_permissions));
             }
