@@ -16,6 +16,7 @@ import java.util.Date;
 
 import smsfrompc.com.smsfrompc.Activities.MainActivity;
 import smsfrompc.com.smsfrompc.Entities.Classes.HistoryMessage;
+import smsfrompc.com.smsfrompc.Entities.Classes.Setting;
 import smsfrompc.com.smsfrompc.R;
 
 public class ScheduleSmsActivity extends AppCompatActivity {
@@ -43,7 +44,7 @@ public class ScheduleSmsActivity extends AppCompatActivity {
 
         editTextTime = findViewById(R.id.scheduledTime);
 
-        switch(MainActivity.ScheduleFormatSetting.getSettingValue()) {
+        switch(Setting.ScheduleFormatSetting.getSettingValue()) {
             case "seconds":
                 editTextTime.setHint(getResources().getString(R.string.datetime_default_seconds));
                 delayTimeMultiplier = 1000;
@@ -80,7 +81,7 @@ public class ScheduleSmsActivity extends AppCompatActivity {
                         recipientName.getText().toString(),
                         recipientNumber.getText().toString(),
                         Integer.toString(delayTimeMs),
-                        MainActivity.ScheduleFormatSetting.getSettingValue(),
+                        Setting.ScheduleFormatSetting.getSettingValue(),
                         dateFormat.format(date)
                 );
 

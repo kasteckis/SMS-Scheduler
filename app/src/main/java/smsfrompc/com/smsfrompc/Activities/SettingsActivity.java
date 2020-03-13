@@ -17,6 +17,7 @@ import com.gun0912.tedpermission.TedPermission;
 
 import java.util.List;
 
+import smsfrompc.com.smsfrompc.Entities.Classes.Setting;
 import smsfrompc.com.smsfrompc.PermissionManager;
 import smsfrompc.com.smsfrompc.R;
 
@@ -78,7 +79,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     void handleScheduleFormatSpinner() {
         String[] arraySpinnerLocal = new String[2];
-        if(MainActivity.ScheduleFormatSetting.getSettingValue().equals("seconds")) {
+        if(Setting.ScheduleFormatSetting.getSettingValue().equals("seconds")) {
             arraySpinnerLocal[0] = "seconds";
             arraySpinnerLocal[1] = "minutes";
         } else {
@@ -113,8 +114,8 @@ public class SettingsActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.ScheduleFormatSetting.setSettingValue(selectedScheduleFormat[0]);
-                MainActivity.myAppDatabase.settingDao().updateSetting(MainActivity.ScheduleFormatSetting);
+                Setting.ScheduleFormatSetting.setSettingValue(selectedScheduleFormat[0]);
+                MainActivity.myAppDatabase.settingDao().updateSetting(Setting.ScheduleFormatSetting);
                 Toast.makeText(SettingsActivity.this, "You will be using " + selectedScheduleFormat[0] + " from now on when delaying messages!", Toast.LENGTH_LONG).show();
             }
         });

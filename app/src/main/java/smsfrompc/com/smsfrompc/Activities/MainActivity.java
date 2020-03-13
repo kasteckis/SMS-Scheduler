@@ -22,7 +22,6 @@ import smsfrompc.com.smsfrompc.R;
 
 public class MainActivity extends AppCompatActivity {
     public static MyAppDatabase myAppDatabase;
-    public static Setting ScheduleFormatSetting = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         myAppDatabase = Room.databaseBuilder(getApplicationContext(), MyAppDatabase.class, "settingdb").allowMainThreadQueries().build();
-        setDefaultSettings();
+        Setting.setDefaultSettings();
 
         final PermissionListener permissionListener = new PermissionListener() {
             @Override
@@ -95,24 +94,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(historyActivityIntent);
             }
         });
-    }
-
-    private void setDefaultSettings()
-    {
-        List<Setting> allSettings = myAppDatabase.settingDao().getAll();
-        if(allSettings.size() == 0) {
-            Setting setting = new Setting();
-            setting.setId(1);
-            setting.setSettingName("delayTime");
-            setting.setSettingValue("seconds");
-
-            myAppDatabase.settingDao().addSetting(setting);
-        }
-        allSettings = myAppDatabase.settingDao().getAll();
-        for(Setting setting : allSettings) {
-            if(setting.getSettingName().equals("delayTime")) {
-                ScheduleFormatSetting = setting;
-            }
-        }
     }
 }
