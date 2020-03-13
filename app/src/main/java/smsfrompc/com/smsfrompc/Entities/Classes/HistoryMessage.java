@@ -25,12 +25,16 @@ public class HistoryMessage {
     @ColumnInfo(name = "date")
     private String date;
 
-    public HistoryMessage(String recipientName, String recipientNumber, String delayTime, String scheduleFormat, String date) {
+    @ColumnInfo(name = "text")
+    private String text;
+
+    public HistoryMessage(String recipientName, String recipientNumber, String delayTime, String scheduleFormat, String date, String text) {
         this.recipientName = recipientName;
         this.recipientNumber = recipientNumber;
         this.delayTime = delayTime;
         this.scheduleFormat = scheduleFormat;
         this.date = date;
+        this.text = text;
     }
 
     public int getId() {
@@ -79,5 +83,13 @@ public class HistoryMessage {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 }

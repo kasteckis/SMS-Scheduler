@@ -27,6 +27,7 @@ public class ScheduleSmsActivity extends AppCompatActivity {
     Button scheduleSmsBtn;
 
     EditText editTextTime;
+    EditText editText;
 
     String plainRecipientNumber = null;
     String plainRecipientText = null;
@@ -43,14 +44,17 @@ public class ScheduleSmsActivity extends AppCompatActivity {
         scheduleSmsBtn = findViewById(R.id.scheduleSmsBtn);
 
         editTextTime = findViewById(R.id.scheduledTime);
+        editText = findViewById(R.id.messageText);
 
         switch(Setting.ScheduleFormatSetting.getSettingValue()) {
             case "seconds":
                 editTextTime.setHint(getResources().getString(R.string.datetime_default_seconds));
+                setScheduledTimeFromHistory();
                 delayTimeMultiplier = 1000;
                 break;
             case "minutes":
                 editTextTime.setHint(getResources().getString(R.string.datetime_default_minutes));
+                setScheduledTimeFromHistory();
                 delayTimeMultiplier = 1000 * 60;
                 break;
             default:
@@ -59,6 +63,7 @@ public class ScheduleSmsActivity extends AppCompatActivity {
 
         recipientName.setText(getIntent().getStringExtra("EXTRA_NAME"));
         recipientNumber.setText(getIntent().getStringExtra("EXTRA_NUMBER"));
+        editText.setText(getIntent().getStringExtra("EXTRA_TEXT"));
 
         smsManager = SmsManager.getDefault();
 
@@ -68,12 +73,10 @@ public class ScheduleSmsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(ScheduleSmsActivity.this, getResources().getString(R.string.message_successfully_scheduled), Toast.LENGTH_SHORT).show();
                 String tempNumber = (String) recipientNumber.getText();
-                EditText tempEditText = findViewById(R.id.messageText);
-                String tempText = tempEditText.getText().toString();
+                String tempText = editText.getText().toString();
                 int delayTimeMs = Integer.parseInt(editTextTime.getText().toString());
                 delayTimeMs = delayTimeMs * delayTimeMultiplier;
 
-                //tempNumber = "+3706000";
                 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 Date date = new Date();
 
@@ -82,7 +85,8 @@ public class ScheduleSmsActivity extends AppCompatActivity {
                         recipientNumber.getText().toString(),
                         Integer.toString(delayTimeMs),
                         Setting.ScheduleFormatSetting.getSettingValue(),
-                        dateFormat.format(date)
+                        dateFormat.format(date),
+                        tempText
                 );
 
                 sendMessage(tempNumber, tempText, delayTimeMs, historyMessage);
@@ -105,5 +109,32 @@ public class ScheduleSmsActivity extends AppCompatActivity {
                 },
                 delayTimeMs
         );
+    }
+
+    private void setScheduledTimeFromHistory()
+    {
+        String delayTime = getIntent().getStringExtra("EXTRA_DELAY");
+        String scheduleFormat = getIntent().getStringExtra("EXTRA_SCHEDULE_FORMAT");
+
+        if(delayTime == null || scheduleFormat == null) {
+            return;
+        }
+
+        int delayTimeInt = Integer.parseInt(delayTime) / 1000;
+
+        switch(Setting.ScheduleFormatSetting.getSettingValue()) {
+            case "seconds":
+                editTextTime.setText(Integer.toString(delayTimeInt));
+                break;
+            case "minutes":
+                delayTimeInt = delayTimeInt / 60;
+                if(delayTimeInt > 0)
+                {
+                    editTextTime.setText(Integer.toString(delayTimeInt));
+                }
+                break;
+            default:
+                throw new RuntimeException("Undefined ScheduleFormatSetting flag");
+        }
     }
 }

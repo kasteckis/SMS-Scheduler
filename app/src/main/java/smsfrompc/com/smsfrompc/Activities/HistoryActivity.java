@@ -35,7 +35,7 @@ public class HistoryActivity extends AppCompatActivity {
 
         ListView contactsListView = findViewById(R.id.historyListView);
 
-        List<HistoryMessage> historyMessageArrayList = MainActivity.myAppDatabase.historyMessageDao().getAll();
+        final List<HistoryMessage> historyMessageArrayList = MainActivity.myAppDatabase.historyMessageDao().getAll();
 
         HistoryListAdapter adapter = new HistoryListAdapter(this, R.layout.history_list_view, historyMessageArrayList);
         contactsListView.setAdapter(adapter);
@@ -45,11 +45,12 @@ public class HistoryActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent scheduleSmsIntent = new Intent(getApplicationContext(), ScheduleSmsActivity.class);
 
-                // TODO: Fix this.
-
-//                Contact selectedContact = contactListNoDups.get(i);
-//                scheduleSmsIntent.putExtra("EXTRA_NAME", selectedContact.getName());
-//                scheduleSmsIntent.putExtra("EXTRA_NUMBER", selectedContact.getNumber());
+                HistoryMessage selectedHistoryMessage = historyMessageArrayList.get(i);
+                scheduleSmsIntent.putExtra("EXTRA_NAME", selectedHistoryMessage.getRecipientName());
+                scheduleSmsIntent.putExtra("EXTRA_NUMBER", selectedHistoryMessage.getRecipientNumber());
+                scheduleSmsIntent.putExtra("EXTRA_TEXT", selectedHistoryMessage.getText());
+                scheduleSmsIntent.putExtra("EXTRA_DELAY", selectedHistoryMessage.getDelayTime());
+                scheduleSmsIntent.putExtra("EXTRA_SCHEDULE_FORMAT", selectedHistoryMessage.getScheduleFormat());
 
                 startActivity(scheduleSmsIntent);
             }
