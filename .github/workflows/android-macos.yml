@@ -3,19 +3,14 @@ name: Android CI androidTest
 on: [push]
 
 jobs:
-  build:
-
+  test:
     runs-on: macOS-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: set up JDK 1.8
-      uses: actions/setup-java@v1
+    - name: checkout
+      uses: actions/checkout@v2
+
+    - name: run tests
+      uses: reactivecircus/android-emulator-runner@v2
       with:
-        java-version: 1.8
-    - name: setup permissions on gradle file
-      run: chmod 777 gradlew
-    - name: Build with Gradle
-      run: ./gradlew build
-    - name: Android Emulator Runner
-      uses: ReactiveCircus/android-emulator-runner@v2.5.0
+        api-level: 29
+        script: ./gradlew connectedCheck
