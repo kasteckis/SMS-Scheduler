@@ -6,6 +6,10 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        api-level: [21, 23, 29]
+        target: [default, google_apis]
 
     steps:
     - uses: actions/checkout@v2
@@ -17,5 +21,13 @@ jobs:
       run: chmod 777 gradlew
     - name: Build with Gradle
       run: ./gradlew build
-    - name: Run Unit tests
+    - name: Run Unit tests (test)
       run: bash ./gradlew test --stacktrace
+    - name: Run Unit tests (androidTest)
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: ${{ matrix.api-level }}
+        target: ${{ matrix.target }}
+        arch: x86_64
+        profile: Nexus 6
+        script: ./gradlew connectedCheck
