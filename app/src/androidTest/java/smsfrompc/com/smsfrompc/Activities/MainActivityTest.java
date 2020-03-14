@@ -7,6 +7,7 @@ import androidx.test.rule.ActivityTestRule;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
+import org.junit.Test;
 
 import smsfrompc.com.smsfrompc.R;
 
@@ -24,6 +25,7 @@ public class MainActivityTest {
         mActivity = mainActivityActivityTestRule.getActivity();
     }
 
+    @Test
     public void testLaunch()
     {
         View view = mActivity.findViewById(R.id.delaySmsBtn);
