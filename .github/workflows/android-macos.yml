@@ -5,6 +5,10 @@ on: [push]
 jobs:
   test:
     runs-on: macOS-latest
+    strategy:
+      matrix:
+        api-level: [21, 23, 29]
+        target: [default, google_apis]
     steps:
     - name: checkout
       uses: actions/checkout@v2
@@ -12,5 +16,8 @@ jobs:
     - name: run tests
       uses: reactivecircus/android-emulator-runner@v2
       with:
-        api-level: 15
+        api-level: ${{ matrix.api-level }}
+        target: ${{ matrix.target }}
+        arch: x86_64
+        profile: Nexus 6
         script: ./gradlew connectedCheck
