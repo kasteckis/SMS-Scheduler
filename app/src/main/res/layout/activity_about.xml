@@ -8,7 +8,7 @@
     android:background="@drawable/gradient">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/aboutBodyTextView"
         android:layout_width="234dp"
         android:layout_height="314dp"
         android:gravity="center"
@@ -27,7 +27,7 @@
         android:textColor="#FF0000"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/aboutBodyTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

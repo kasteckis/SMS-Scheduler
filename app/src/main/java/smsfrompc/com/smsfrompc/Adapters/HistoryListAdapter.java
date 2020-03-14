@@ -39,8 +39,6 @@ public class HistoryListAdapter extends ArrayAdapter<HistoryMessage> {
         String date = getItem(position).getDate();
         String text = getItem(position).getText();
 
-        HistoryMessage historyMessage = new HistoryMessage(recipientName, recipientNumber, delayTime, scheduleFormat, date, text);
-
         LayoutInflater inflater = LayoutInflater.from(mContext);
 
         convertView = inflater.inflate(mResource, parent, false);

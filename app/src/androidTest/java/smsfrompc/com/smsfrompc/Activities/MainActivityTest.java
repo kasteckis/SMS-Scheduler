@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
+import smsfrompc.com.smsfrompc.Entities.Classes.Setting;
 import smsfrompc.com.smsfrompc.R;
 
 import static org.junit.Assert.*;
@@ -16,21 +17,33 @@ import static org.junit.Assert.*;
 public class MainActivityTest {
 
     @Rule
-    public ActivityTestRule<MainActivity> mainActivityActivityTestRule = new ActivityTestRule<MainActivity>(MainActivity.class);
+    public ActivityTestRule<MainActivity> mainActivityTestRule = new ActivityTestRule<MainActivity>(MainActivity.class);
 
     private MainActivity mActivity = null;
 
     @Before
     public void setUp() throws Exception {
-        mActivity = mainActivityActivityTestRule.getActivity();
+        mActivity = mainActivityTestRule.getActivity();
     }
 
     @Test
-    public void testLaunch()
+    public void testMainActivityButtons()
     {
         View view = mActivity.findViewById(R.id.delaySmsBtn);
         assertNotNull(view);
+        view = mActivity.findViewById(R.id.historyBtn);
+        assertNotNull(view);
+        view = mActivity.findViewById(R.id.settingsBtn);
+        assertNotNull(view);
+        view = mActivity.findViewById(R.id.aboutBtn);
+        assertNotNull(view);
     }
+
+//    @Test
+//    public void testDefaultSystemScheduleFormat()
+//    {
+//        assertNotNull(Setting.ScheduleFormatSetting);
+//    }
 
     @After
     public void tearDown() throws Exception {

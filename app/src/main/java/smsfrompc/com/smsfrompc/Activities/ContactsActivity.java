@@ -37,7 +37,7 @@ public class ContactsActivity extends AppCompatActivity {
 
         if(contactListNoDups == null) {
             ArrayList<Contact> contactList = readContacts();
-            contactListNoDups = removeDuplicates(contactList);
+            contactListNoDups = Contact.removeDuplicates(contactList);
         }
 
         ContactsListAdapter adapter = new ContactsListAdapter(this, R.layout.contacts_list_view, contactListNoDups);
@@ -92,25 +92,5 @@ public class ContactsActivity extends AppCompatActivity {
             cur.close();
         }
         return contactList;
-    }
-
-    private ArrayList<Contact> removeDuplicates(ArrayList<Contact> list)
-    {
-        ArrayList<Contact> contactListNoDups = new ArrayList<>();
-        for (Contact contact : list)
-        {
-            boolean shouldIAddToNewList = true;
-            for(Contact contactInNewList : contactListNoDups)
-            {
-                if(contact.getName().equals(contactInNewList.getName()) && contact.getNumber().equals(contactInNewList.getNumber()))
-                {
-                    shouldIAddToNewList = false;
-                    break;
-                }
-            }
-            if(shouldIAddToNewList)
-                contactListNoDups.add(contact);
-        }
-        return contactListNoDups;
     }
 }
