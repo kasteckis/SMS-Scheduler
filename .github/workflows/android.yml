@@ -17,3 +17,5 @@ jobs:
       run: chmod 777 gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    - name: Run Unit tests
+      run: bash ./gradlew test --stacktrace
