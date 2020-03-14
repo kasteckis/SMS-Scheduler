@@ -26,7 +26,7 @@ public class MainActivityTest {
 
     public void testLaunch()
     {
-        View view = mActivity.findViewById(R.id.delaySmsBtn5);
+        View view = mActivity.findViewById(R.id.delaySmsBtn);
         assertNotNull(view);
     }
 
