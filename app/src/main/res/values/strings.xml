@@ -21,4 +21,6 @@
     <string name="date">Date</string>
     <string name="permissions_not_set">Permissions are not set!</string>
     <string name="permissions_not_set_body">In order to use this application you need to grant two types of permissions. One is to read contacts and the other one is to send SMS to your contacts. Without granting these this application won\'t be able to properly! Please go back to settings and request permissions again!</string>
+    <string name="history_is_empty">Your history is empty!</string>
+    <string name="history_is_empty_body">Your history is empty, after you will send some messages, here you will see history!</string>
 </resources>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -33,6 +34,10 @@ public class HistoryActivity extends AppCompatActivity {
 
         final List<HistoryMessage> historyMessageArrayList = MainActivity.myAppDatabase.historyMessageDao().getAll();
 
+        if(historyMessageArrayList.size() == 0) {
+            changeLayoutToHistoryEmpty();
+        }
+
         HistoryListAdapter adapter = new HistoryListAdapter(this, R.layout.history_list_view, historyMessageArrayList);
         contactsListView.setAdapter(adapter);
 
@@ -51,5 +56,14 @@ public class HistoryActivity extends AppCompatActivity {
                 startActivity(scheduleSmsIntent);
             }
         });
+    }
+
+    public void changeLayoutToHistoryEmpty() {
+        View C = findViewById(R.id.historyListView);
+        ViewGroup parent = (ViewGroup) C.getParent();
+        int index = parent.indexOfChild(C);
+        parent.removeView(C);
+        C = getLayoutInflater().inflate(R.layout.history_is_empty, parent, false);
+        parent.addView(C, index);
     }
 }

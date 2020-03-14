@@ -22,7 +22,7 @@ public class HistoryListAdapter extends ArrayAdapter<HistoryMessage> {
 
     private Context mContext;
     int mResource;
-    static int count = 0;
+    public static int count = 0;
 
     public HistoryListAdapter(@NonNull Context context, int resource) {
         super(context, resource);
