@@ -1,4 +1,4 @@
-name: Android CI
+name: Android CI test
 
 on: [push]
 
@@ -17,3 +17,5 @@ jobs:
       run: chmod 777 gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    - name: Run Unit tests (test)
+      run: bash ./gradlew test --stacktrace
