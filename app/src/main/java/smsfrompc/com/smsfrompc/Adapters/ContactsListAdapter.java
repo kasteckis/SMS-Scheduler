@@ -20,30 +20,10 @@ public class ContactsListAdapter extends ArrayAdapter<Contact> {
     private Context mContext;
     int mResource;
 
-    public ContactsListAdapter(@NonNull Context context, int resource) {
-        super(context, resource);
-    }
-
-    public ContactsListAdapter(@NonNull Context context, int resource, int textViewResourceId) {
-        super(context, resource, textViewResourceId);
-    }
-
-    public ContactsListAdapter(@NonNull Context context, int resource, @NonNull Contact[] objects) {
-        super(context, resource, objects);
-    }
-
-    public ContactsListAdapter(@NonNull Context context, int resource, int textViewResourceId, @NonNull Contact[] objects) {
-        super(context, resource, textViewResourceId, objects);
-    }
-
     public ContactsListAdapter(@NonNull Context context, int resource, @NonNull List<Contact> objects) {
         super(context, resource, objects);
         mContext = context;
         mResource = resource;
-    }
-
-    public ContactsListAdapter(@NonNull Context context, int resource, int textViewResourceId, @NonNull List<Contact> objects) {
-        super(context, resource, textViewResourceId, objects);
     }
 
     @NonNull

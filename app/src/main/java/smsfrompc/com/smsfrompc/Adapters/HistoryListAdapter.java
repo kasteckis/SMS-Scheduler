@@ -22,32 +22,11 @@ public class HistoryListAdapter extends ArrayAdapter<HistoryMessage> {
 
     private Context mContext;
     int mResource;
-    public static int count = 0;
-
-    public HistoryListAdapter(@NonNull Context context, int resource) {
-        super(context, resource);
-    }
-
-    public HistoryListAdapter(@NonNull Context context, int resource, int textViewResourceId) {
-        super(context, resource, textViewResourceId);
-    }
-
-    public HistoryListAdapter(@NonNull Context context, int resource, @NonNull HistoryMessage[] objects) {
-        super(context, resource, objects);
-    }
-
-    public HistoryListAdapter(@NonNull Context context, int resource, int textViewResourceId, @NonNull HistoryMessage[] objects) {
-        super(context, resource, textViewResourceId, objects);
-    }
 
     public HistoryListAdapter(@NonNull Context context, int resource, @NonNull List<HistoryMessage> objects) {
         super(context, resource, objects);
         mContext = context;
         mResource = resource;
-    }
-
-    public HistoryListAdapter(@NonNull Context context, int resource, int textViewResourceId, @NonNull List<HistoryMessage> objects) {
-        super(context, resource, textViewResourceId, objects);
     }
 
     @NonNull
@@ -59,7 +38,6 @@ public class HistoryListAdapter extends ArrayAdapter<HistoryMessage> {
         String scheduleFormat = getItem(position).getScheduleFormat();
         String date = getItem(position).getDate();
         String text = getItem(position).getText();
-        count++;
 
         HistoryMessage historyMessage = new HistoryMessage(recipientName, recipientNumber, delayTime, scheduleFormat, date, text);
 
