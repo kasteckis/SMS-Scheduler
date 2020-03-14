@@ -29,7 +29,7 @@ public class MainActivityTest {
     public void testLaunch()
     {
         View view = mActivity.findViewById(R.id.delaySmsBtn);
-        assertNotNull(null);
+        assertNotNull(view);
     }
 
     @After
