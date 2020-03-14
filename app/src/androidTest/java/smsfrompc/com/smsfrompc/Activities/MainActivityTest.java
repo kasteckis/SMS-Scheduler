@@ -27,8 +27,7 @@ public class MainActivityTest {
     }
 
     @Test
-    public void testMainActivityButtons()
-    {
+    public void testMainActivityButtons() {
         View view = mActivity.findViewById(R.id.delaySmsBtn);
         assertNotNull(view);
         view = mActivity.findViewById(R.id.historyBtn);
@@ -37,13 +36,8 @@ public class MainActivityTest {
         assertNotNull(view);
         view = mActivity.findViewById(R.id.aboutBtn);
         assertNotNull(view);
+        assertNotNull(Setting.ScheduleFormatSetting);
     }
-
-//    @Test
-//    public void testDefaultSystemScheduleFormat()
-//    {
-//        assertNotNull(Setting.ScheduleFormatSetting);
-//    }
 
     @After
     public void tearDown() throws Exception {
