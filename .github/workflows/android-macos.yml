@@ -1,11 +1,11 @@
-name: Android CI
+name: Android CI androidTest
 
 on: [push]
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -17,5 +17,5 @@ jobs:
       run: chmod 777 gradlew
     - name: Build with Gradle
       run: ./gradlew build
-    - name: Run Unit tests (test)
-      run: bash ./gradlew test --stacktrace
+    - name: Android Emulator Runner
+      uses: ReactiveCircus/android-emulator-runner@v2.5.0
