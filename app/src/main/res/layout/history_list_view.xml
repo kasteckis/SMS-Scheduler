@@ -32,6 +32,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight=".5"
+            android:gravity="center"
             android:text="@string/delay_time" />
 
         <TextView
@@ -39,6 +40,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight=".5"
+            android:gravity="center"
             android:text="@string/date" />
 
     </LinearLayout>

@@ -16,6 +16,7 @@ import java.util.List;
 import smsfrompc.com.smsfrompc.Activities.HistoryActivity;
 import smsfrompc.com.smsfrompc.Entities.Classes.Contact;
 import smsfrompc.com.smsfrompc.Entities.Classes.HistoryMessage;
+import smsfrompc.com.smsfrompc.Managers.TimeDisplayManager;
 import smsfrompc.com.smsfrompc.R;
 
 public class HistoryListAdapter extends ArrayAdapter<HistoryMessage> {
@@ -50,7 +51,7 @@ public class HistoryListAdapter extends ArrayAdapter<HistoryMessage> {
 
         tvName.setText(recipientName);
         tvNumber.setText(recipientNumber);
-        tvDelay.setText(delayTime);
+        tvDelay.setText(TimeDisplayManager.transformSecondsToUserSetFormat(delayTime));
         tvDate.setText(date);
 
         return convertView;

@@ -10,7 +10,7 @@ public class PermissionManager {
 
     public static boolean didUserGrantPermissions()
     {
-        // TODO: Check both permissions.
+        // TODO: If more permissions will appear, use this.
 
         return permissionsGranted;
     }
