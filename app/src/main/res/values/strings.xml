@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SMS From PC</string>
+    <string name="app_name">SMS Scheduler</string>
     <string name="request_permissions">Request permissions</string>
     <string name="send_sms_button">Schedule SMS</string>
     <string name="name_surname_default">Name Surname</string>
