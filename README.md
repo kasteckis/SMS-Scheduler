@@ -1,4 +1,4 @@
-# SMS-Scheduler
+# SMS Scheduler
 ![SMS-Scheduler-readme-image](readme.gif)
 
 # Purpose
